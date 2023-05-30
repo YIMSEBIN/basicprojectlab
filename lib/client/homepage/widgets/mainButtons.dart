@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../app_theme.dart';
+import '../../calendar/calendar.dart';
+import '../../feelings/feelings.dart';
+import '../../find_offer/find_offer.dart';
+import '../../tags/tags.dart';
 import '../../write_diary/write_diary.dart';
 
 class mainButton extends StatefulWidget {
@@ -17,11 +22,7 @@ class _mainButton extends State{
           Container(
             child: Text(
               "모아보기",
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                color: Colors.black
-              ),
+              style: AppTheme.bigtextbuttons
             ),
           ),
           Container(
@@ -29,8 +30,11 @@ class _mainButton extends State{
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                ////////////날짜별 버튼/////////////////////////////////////////////////
                 TextButton(
-                    onPressed: () {}, ////////////날짜별 버튼/////////////////////////////////////////////////
+                    onPressed: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => Calendar()));
+                    },
                     child: Container(
                       width: 140,
                       height: 160,
@@ -59,19 +63,18 @@ class _mainButton extends State{
                             margin: EdgeInsets.only(top: 10),
                             child: Text(
                               "날짜별",
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold
-                              ),
+                              style: AppTheme.bigtextbuttons
                             ),
                           )
                         ],
                       ),
                     ),
                 ),
+                ////////////////태그별 버튼/////////////////////////////////////////
                 TextButton(
-                  onPressed: () {}, ////////////////태그별 버튼/////////////////////////////////////////
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => Tags()));
+                  },
                   child: Container(
                     width: 140,
                     height: 160,
@@ -111,8 +114,11 @@ class _mainButton extends State{
                     ),
                   ),
                 ),
+                /////////////////감정별버튼//////////////////////////////////////////
                 TextButton(
-                  onPressed: () {}, /////////////////감정별버튼//////////////////////////////////////////
+                  onPressed: () {
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => Feelings()));
+                  },
                   child: Container(
                     width: 140,
                     height: 160,
@@ -141,11 +147,7 @@ class _mainButton extends State{
                           margin: EdgeInsets.only(top: 10),
                           child: Text(
                             "감정별",
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold
-                            ),
+                            style: AppTheme.bigtextbuttons
                           ),
                         )
                       ],
@@ -155,8 +157,11 @@ class _mainButton extends State{
               ],
             ),
           ),
+          ////////////////////상담사 연결 버튼 ///////////////////////////////////////
           TextButton(
-              onPressed: () {}, ////////////////////상담사 연결 버튼 ///////////////////////////////////////
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => FindOffer()));
+                },
               child: Container(
                 margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
                 width: double.infinity,
@@ -177,11 +182,7 @@ class _mainButton extends State{
                   children: [
                     Text(
                     "상담사 연결하기",
-                    style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold
-                    ),
+                    style: AppTheme.bigtextbuttons
                   ),
                   ],
                 )
@@ -211,19 +212,14 @@ class _mainButton extends State{
                   children: [
                     Text(
                       "글쓰기",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20
-                      ),
+                      style: AppTheme.bigtextbuttons
                     )
                   ],
                 )
                 ),
               )
-          
         ],
       ),
     );
   }
-
 }

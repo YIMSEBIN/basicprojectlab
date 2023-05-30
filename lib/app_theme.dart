@@ -93,6 +93,13 @@ class AppTheme {
       color: Colors.white
   );
 
+  static const TextStyle bigtextbuttons = TextStyle(
+      fontWeight: FontWeight.w800,
+      fontSize: 20,
+      letterSpacing: 0.2,
+      color: Colors.black
+  );
+
   static const TextStyle textbuttons = TextStyle(
       fontWeight: FontWeight.w800,
       fontSize: 15,

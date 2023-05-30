@@ -255,7 +255,7 @@ class _uploadNewPost extends State {
                                                   10.0),
                                               image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image: FileImage(File(i))
+                                                image: NetworkImage(i)
                                               )
                                             ),
                                           )
