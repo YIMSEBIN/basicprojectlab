@@ -52,139 +52,164 @@ class _ClientListState extends State<ClientList> with TickerProviderStateMixin {
                     ),
                     child: Row(
                       children: [
-                        SizedBox(width: 20),  // 좌측에 간격을 주기 위한 SizedBox
                         Container(
-                          color: Colors.grey,
-                          width: 70,
-                          height: 70,
-                        ),
-                        Container(
-                          child: Align(
-                            alignment: Alignment(-1.0,1.0),
-                            child: Text(
-                              '김상담',
-                              style: TextStyle(fontSize: 15, color: Colors.black),
-                            ),
-                          ),
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0,30,0,0),
-                              child: Column(
-                                children:[
-                                  Text("성별 : 남" , style: TextStyle(fontSize: 20),),
-                                  Text("생년월일 : 2002/08/19", style: TextStyle(fontSize: 20),),
-                                ],
+                          margin: EdgeInsets.only(left:20),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                  color: Colors.grey,
+                                  width: 70,
+                                  height: 70,
+                                  child: Image.asset("images/user1.jpg")
                               ),
+                              Container(
+                                child: Align(
+                                  alignment: Alignment(-1.0,1.0),
+                                  child: Text(
+                                    '김상담',
+                                    style:AppTheme.textbuttons
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left:20),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children:[
+                                Text("성별 : 남" , style: AppTheme.caption),
+                                Text("생년월일 : 2002/08/19", style: AppTheme.caption),
+                              ],
                             ),
-                          ],
-                        ),
+                         ),
                       ],
                     )
                 ),
             ),
             SizedBox(height: 20),
-            Container(
-                width: 400,
-                height: 120,
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 15,
-                      offset: const Offset(10,10),
-                      color: Colors.black.withOpacity(0.3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(width: 20),  // 좌측에 간격을 주기 위한 SizedBox
-                    Container(
-                      color: Colors.grey,
-                      width: 70,
-                      height: 70,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => ClientInfo()));
+                },
+                child:Container(
+                    width: 400,
+                    height: 120,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 15,
+                          offset: const Offset(10,10),
+                          color: Colors.black.withOpacity(0.3),
+                        )
+                      ],
                     ),
-                    Container(
-                      child: Align(
-                        alignment: Alignment(-1.0,1.0),
-                        child: Text(
-                          '김상담',
-                          style: TextStyle(fontSize: 15, color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0,30,0,0),
+                        Container(
+                          margin: EdgeInsets.only(left:20),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                  color: Colors.grey,
+                                  width: 70,
+                                  height: 70,
+                                  child: Image.asset("images/user2.jpg")
+                              ),
+                              Container(
+                                child: Align(
+                                  alignment: Alignment(-1.0,1.0),
+                                  child: Text(
+                                      '이상담',
+                                      style:AppTheme.textbuttons
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left:20),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children:[
-                              Text("성별 : 남" , style: TextStyle(fontSize: 20),),
-                              Text("생년월일 : 2002/08/19", style: TextStyle(fontSize: 20),),
+                              Text("성별 : 여" , style: AppTheme.caption),
+                              Text("생년월일 : 2001/10/29", style:AppTheme.caption),
                             ],
                           ),
                         ),
                       ],
-                    ),
-                  ],
-                )
-            ),
+                    )
+                ),
+              ),
             SizedBox(height: 20),
-            Container(
-                width: 400,
-                height: 120,
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 15,
-                      offset: const Offset(10,10),
-                      color: Colors.black.withOpacity(0.3),
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(width: 20),  // 좌측에 간격을 주기 위한 SizedBox
-                    Container(
-                      color: Colors.grey,
-                      width: 70,
-                      height: 70,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => ClientInfo()));
+                },
+                child:Container(
+                    width: 400,
+                    height: 120,
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 15,
+                          offset: const Offset(10,10),
+                          color: Colors.black.withOpacity(0.3),
+                        )
+                      ],
                     ),
-                    Container(
-                      child: Align(
-                        alignment: Alignment(-1.0,1.0),
-                        child: Text(
-                          '김상담',
-                          style: TextStyle(fontSize: 15, color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0,30,0,0),
+                        Container(
+                          margin: EdgeInsets.only(left:20),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Container(
+                                  color: Colors.grey,
+                                  width: 70,
+                                  height: 70,
+                                  child: Image.asset("images/user3.jpg")
+                              ),
+                              Container(
+                                child: Align(
+                                  alignment: Alignment(-1.0,1.0),
+                                  child: Text(
+                                      '최상담',
+                                      style:AppTheme.textbuttons
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left:20),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children:[
-                              Text("성별 : 남" , style: TextStyle(fontSize: 20),),
-                              Text("생년월일 : 2002/08/19", style: TextStyle(fontSize: 20),),
+                              Text("성별 : 남" , style: AppTheme.caption),
+                              Text("생년월일 : 1999/08/30", style: AppTheme.caption),
                             ],
                           ),
                         ),
                       ],
-                    ),
-                  ],
-                )
-            ),
+                    )
+                ),
+              ),
             GestureDetector(
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context) => AddHomework()));
@@ -199,10 +224,11 @@ class _ClientListState extends State<ClientList> with TickerProviderStateMixin {
                   borderRadius: BorderRadius.circular(10.0)
               ),
               child: Text("과제 추가", style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-              ),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                  letterSpacing: 0.2,
+                  color: Colors.white
+              )),
             ),
             )
           ]

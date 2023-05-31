@@ -10,9 +10,9 @@ import '../../module_diary.dart';
 
 
 final images = [
-  'images/movie2.png',
+  'dumy',
   'images/movie3.png',
-  'images/movie1.png',
+  'images/movie2.png',
 ];
 
 class ViewDiary extends StatefulWidget {
@@ -59,6 +59,7 @@ class _ViewDiaryState extends State<ViewDiary> with TickerProviderStateMixin {
                   map: docSnapshot.data(),
                 ),
               );
+              print(diaries);
             }
 
             return Padding(
@@ -85,7 +86,7 @@ class _ViewDiaryState extends State<ViewDiary> with TickerProviderStateMixin {
                               //진행시 애니메이션
                               enlargeCenterPage: true, // 센터에있는 사진을 크게할지 말지
                             ),
-                            items: List.generate(diaries.length, (index) => index++)
+                            items: List.generate(diaries.length-1, (index) => ++index)
                                 .map((i) {
                               return Builder(
                                 builder: (BuildContext context) {

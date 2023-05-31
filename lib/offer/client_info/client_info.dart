@@ -19,13 +19,18 @@ class ClientInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           elevation: 1.0,
           title: Text('RemindDiary', style: TextStyle(color: Colors.black),),
           backgroundColor: Colors.white,
+          actions: [],
+          centerTitle: true,
         ),
-        body: Column(
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
           children: [
             Container(
               alignment: Alignment.center,
@@ -38,12 +43,10 @@ class ClientInfo extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.black26,
-                    ),
+                      color: Colors.grey,
+                      width: 120,
+                      height: 120,
+                      child: Image.asset("images/user1.jpg")
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
@@ -51,8 +54,8 @@ class ClientInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("ID : Kimcounselling"),
-                        Text("성별 : 여"),
-                        Text("생년월일 : 2000/01/23")
+                        Text("성별 : 남"),
+                        Text("생년월일 : 2002/08/19")
                       ],
                     ),
                   ),
@@ -66,7 +69,7 @@ class ClientInfo extends StatelessWidget {
             Container(
               margin: EdgeInsets.fromLTRB(0, 10, 0, 30),
               height: 170.0,
-              width: 300.0,
+              width: 400.0,
               child: LineChart(
                 LineChartData(
                     backgroundColor: Colors.black12,
@@ -110,7 +113,7 @@ class ClientInfo extends StatelessWidget {
               ),
             ),
             Container(
-              width: 300,
+              width: 400,
               height: 200,
               decoration: BoxDecoration(
                 color: Colors.black12,
@@ -119,7 +122,7 @@ class ClientInfo extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    width: 250,
+                    width: 360,
                     height: 60,
                     margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                     decoration: BoxDecoration(
@@ -128,17 +131,20 @@ class ClientInfo extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8,8,60,8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("그리스로 놀러갔던 날", style: TextStyle(fontSize: 16),),
-                              Text("2023/05/26", style: TextStyle(color: Colors.black45),),
-                            ],
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(8,8,60,8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("그리스 여행", style: TextStyle(fontSize: 16),),
+                                Text("2023/05/26", style: TextStyle(color: Colors.black45),),
+                              ],
+                            ),
                           ),
                         ),
                         Container(
+                          margin: EdgeInsets.only(right:10),
                           width: 30,
                           height: 30,
                           decoration: BoxDecoration(
@@ -150,7 +156,7 @@ class ClientInfo extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 250,
+                    width: 360,
                     height: 60,
                     margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                     decoration: BoxDecoration(
@@ -159,17 +165,20 @@ class ClientInfo extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8,8,125,8),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("벚꽃 구경", style: TextStyle(fontSize: 16),),
-                              Text("2023/05/22", style: TextStyle(color: Colors.black45),),
-                            ],
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(8,8,125,8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("벚꽃 구경", style: TextStyle(fontSize: 16),),
+                                Text("2023/05/22", style: TextStyle(color: Colors.black45),),
+                              ],
+                            ),
                           ),
                         ),
                         Container(
+                          margin: EdgeInsets.only(right:10),
                           width: 30,
                           height: 30,
                           decoration: BoxDecoration(
@@ -182,31 +191,31 @@ class ClientInfo extends StatelessWidget {
                   ),
                 ],
               ),
-            ),Container(
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => AddHomework()));
+              },
+              child: Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 width: 300,
                 height: 60,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
+                margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                decoration: BoxDecoration(
                     color: Colors.black,
-                    blurRadius: 3.0,
-                    spreadRadius: 5.0,
-                  ),],
-              ),
-              child:ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => AddHomework()));
-                },
+                    borderRadius: BorderRadius.circular(10.0)
+                ),
                 child: Text("과제 추가", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                 ),)
-              ))],
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    letterSpacing: 0.2,
+                    color: Colors.white
+                )),
+              ),
+            )
+          ],
         ),
+        )
       ),
     );
   }

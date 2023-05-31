@@ -7,8 +7,9 @@ import '../../../app_theme.dart';
 import '../../../module_diary.dart';
 
 final images = [
-  'images/movie2.png',
+  'images/diaryimage.jpg',
   'images/movie3.png',
+  'images/movie2.png',
 ];
 
 class ViewFeelingDiary extends StatefulWidget {

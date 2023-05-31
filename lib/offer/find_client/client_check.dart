@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ClientCheck extends StatelessWidget {
-  String name = '김상담';
+  String name = '박상담';
   String gender = '여성';
   String birthday = '2000/01/23';
-  String imagePath = 'assets/images/profile_picture.png'; // 이미지 파일 경로 설정
+  String imagePath = 'images/user1.jpg'; // 이미지 파일 경로 설정
 
   @override
   Widget build(BuildContext context) {

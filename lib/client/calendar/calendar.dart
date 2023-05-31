@@ -5,9 +5,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../../app_theme.dart';
 
 final images = [
-  'images/movie1.png',
-  'images/movie2.png',
-  'images/movie3.png'
+  'images/image1.jpg',
+  'images/image2.jpg',
+  'images/image3.jpg',
+  'images/image4.jpg'
 ];
 
 class Calendar extends StatefulWidget {

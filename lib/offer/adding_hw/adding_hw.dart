@@ -117,7 +117,9 @@ class _AddHomeworkState extends State<AddHomework> {
               ),
               Container(
                 child: TextButton(
-                  onPressed: () {}, ////////////////////////추가하기버튼/////////////////////////////////////
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }, ////////////////////////추가하기버튼/////////////////////////////////////
                   child: Container(
                     margin: EdgeInsets.only(top: 15),
                     width: double.infinity,

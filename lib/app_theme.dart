@@ -78,12 +78,12 @@ class AppTheme {
     color: darkText,
   );
 
-  static const TextStyle caption = TextStyle( // Caption -> caption
+  static const TextStyle caption = TextStyle(
     fontFamily: fontName,
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    fontSize: 15,
     letterSpacing: 0.2,
-    color: lightText, // was lightText
+      color: Colors.black
   );
 
   static const TextStyle tag = TextStyle(
