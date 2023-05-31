@@ -1,6 +1,4 @@
 
-import 'dart:io';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../app_theme.dart';
 import '../../module_diary.dart';
 import '../navigation_home_screen.dart';
+import '../client_custom_drawer/home_drawer.dart';
 import 'accessButton.dart';
 
 // final images = [
@@ -198,6 +197,7 @@ class _uploadNewPost extends State {
         _pickedImgs.add(image.path);
       });
     }
+    print(_pickedImgs[0]);
   }
 
   DateTime? _selectedDate;
@@ -390,8 +390,8 @@ class _uploadNewPost extends State {
                                   children: [
                                     TextButton(
                                       onPressed: () {
-                                        _addDiary(Diary(contents: _writediarycontroller.text, tags: tags, feeling: emotion, imageUrl: _pickedImgs));
-                                        Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen()));
+                                        _addDiary(Diary(contents: _writediarycontroller.text, tags: tags, feeling: emotion, imageUrl: _pickedImgs, date:_selectedDate.toString().split(" ")[0]));
+                                        Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen(pagename: DrawerIndex.HOME)));
                                       },
                                       child: Text(
                                         "저장",
@@ -416,7 +416,7 @@ class _uploadNewPost extends State {
     setState(() {
       FirebaseFirestore.instance
           .collection(getEmail()!)
-          .add({'contents': diary.contents, 'tags': diary.tags, 'feeling' : diary.feeling, 'imageUrl': diary.imageUrl});
+          .add({'contents': diary.contents, 'tags': diary.tags, 'feeling' : diary.feeling, 'imageUrl': diary.imageUrl, 'date': diary.date});
       _writediarycontroller.text = "";
     });
   }

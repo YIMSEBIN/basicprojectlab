@@ -87,15 +87,15 @@ class AppTheme {
   );
 
   static const TextStyle tag = TextStyle(
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
       letterSpacing: 0.2,
-      color: Colors.white
+      color: Colors.black
   );
 
   static const TextStyle bigtextbuttons = TextStyle(
-      fontWeight: FontWeight.w800,
-      fontSize: 20,
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
       letterSpacing: 0.2,
       color: Colors.black
   );

@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app_theme.dart';
-import '../../calendar/calendar.dart';
-import '../../feelings/feelings.dart';
+import '../../client_custom_drawer/home_drawer.dart';
 import '../../find_offer/find_offer.dart';
-import '../../tags/tags.dart';
+import '../../navigation_home_screen.dart';
 import '../../write_diary/write_diary.dart';
 
 class mainButton extends StatefulWidget {
@@ -18,54 +17,56 @@ class _mainButton extends State{
     return Container(
       margin: EdgeInsets.only(top: 20),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
+            margin: EdgeInsets.only(top: 10),
             child: Text(
               "모아보기",
-              style: AppTheme.bigtextbuttons
+              style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 22,
+                  letterSpacing: 0.2,
+                  color: Colors.black
+              )
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ////////////날짜별 버튼/////////////////////////////////////////////////
                 TextButton(
                     onPressed: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => Calendar()));
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen(pagename: DrawerIndex.Calendar)));
                     },
                     child: Container(
-                      width: 140,
+                      width: 120,
                       height: 160,
                       decoration: BoxDecoration(
                           color: Color.fromRGBO(244, 245, 233, 1),
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(10),
                           boxShadow: [BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5.0,
+                              blurRadius: 3.0,
                               spreadRadius: 2.0,
-                              offset: Offset(0, 6)
+                              offset: Offset(0, 4)
                           )
                           ]
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(
-                            margin: EdgeInsets.only(top: 20),
-                            child: Image(
-                              image: AssetImage("icons/calendar.png"),
-                              width: 80,
-                              height: 80,
+                          Icon(
+                                Icons.calendar_today,
+                              color: Colors.black,
+                              size: 60
                             ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 10),
-                            child: Text(
+                          Text(
                               "날짜별",
                               style: AppTheme.bigtextbuttons
                             ),
-                          )
                         ],
                       ),
                     ),
@@ -73,43 +74,35 @@ class _mainButton extends State{
                 ////////////////태그별 버튼/////////////////////////////////////////
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => Tags()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen(pagename: DrawerIndex.Tags)));
                   },
                   child: Container(
-                    width: 140,
+                    width: 120,
                     height: 160,
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(244, 245, 233, 1),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         boxShadow: [BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 5.0,
+                            blurRadius: 3.0,
                             spreadRadius: 2.0,
-                            offset: Offset(0, 6)
+                            offset: Offset(0, 4)
                         )
                         ]
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Image(
-                            image: AssetImage("icons/tag.png"),
-                            width: 80,
-                            height: 80,
-                          ),
+                        Icon(
+                            Icons.label,
+                            color: Colors.black,
+                            size: 60
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Text(
+                        Text(
                             "태그별",
-                            style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        )
+                            style: AppTheme.bigtextbuttons
+                        ),
                       ],
                     ),
                   ),
@@ -117,39 +110,35 @@ class _mainButton extends State{
                 /////////////////감정별버튼//////////////////////////////////////////
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => Feelings()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen(pagename: DrawerIndex.Feelings)));
                   },
                   child: Container(
-                    width: 140,
+                    width: 120,
                     height: 160,
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(244, 245, 233, 1),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         boxShadow: [BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            blurRadius: 5.0,
+                            blurRadius: 3.0,
                             spreadRadius: 2.0,
-                            offset: Offset(0, 6)
+                            offset: Offset(0, 4)
                         )
                         ]
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: Image(
-                            image: AssetImage("icons/happy.png"),
-                            width: 80,
-                            height: 80,
-                          ),
+                        Icon(
+                            Icons.sentiment_satisfied,
+                            color: Colors.black,
+                            size: 60
                         ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10),
-                          child: Text(
+                        Text(
                             "감정별",
                             style: AppTheme.bigtextbuttons
-                          ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -160,31 +149,33 @@ class _mainButton extends State{
           ////////////////////상담사 연결 버튼 ///////////////////////////////////////
           TextButton(
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => FindOffer()));
+                Navigator.push(context,MaterialPageRoute(builder: (context) => NavigationHomeScreen(pagename: DrawerIndex.FindOffer)));
                 },
               child: Container(
                 margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                width: double.infinity,
-                height: 100,
+                width: 390,
+                height: 70,
                 decoration: BoxDecoration(
                     color: Color.fromRGBO(244, 245, 233, 1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     boxShadow: [BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
-                        blurRadius: 5.0,
+                        blurRadius: 3.0,
                         spreadRadius: 2.0,
-                        offset: Offset(0, 6)
+                        offset: Offset(0, 4)
                     )
                     ]
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
+                child: Center(
+                  child: Text(
                     "상담사 연결하기",
-                    style: AppTheme.bigtextbuttons
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20,
+                          letterSpacing: 0.2,
+                          color: Colors.black
+                      )
                   ),
-                  ],
                 )
               )
           ),
@@ -193,7 +184,7 @@ class _mainButton extends State{
                 Navigator.push(context,MaterialPageRoute(builder: (context) => WriteDiary()));
               },
               child: Container(
-                margin: EdgeInsets.only(top: 25),
+                margin: EdgeInsets.only(top:30, bottom: 40),
                 width: 200,
                 height: 60,
                 decoration: BoxDecoration(

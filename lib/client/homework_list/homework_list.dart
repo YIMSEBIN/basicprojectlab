@@ -24,25 +24,31 @@ class HomeworkList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: [
+    return Padding(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
         appBar(),
-        ListView.builder(
-        itemCount: buttons.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(buttons[index].title),
-            subtitle: Text(buttons[index].dateText),
-            trailing: buttons[index].isChecked
-                ? Icon(Icons.check) // 원 안에 체크 표시
-                : Icon(Icons.remove), // 원 안에 "-" 표시
-            onTap: () {
-              // 버튼을 눌렀을 때 수행할 동작
-            },
-          );
-        },
-      ),
-    ]);
+        Expanded(
+            child: ListView.builder(
+              itemCount: buttons.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(buttons[index].title),
+                  subtitle: Text(buttons[index].dateText),
+                  trailing: buttons[index].isChecked
+                      ? Icon(Icons.check) // 원 안에 체크 표시
+                      : Icon(Icons.remove), // 원 안에 "-" 표시
+                  onTap: () {
+                    // 버튼을 눌렀을 때 수행할 동작
+                  },
+                );
+              },
+            ),
+        )
+    ]));
   }
 
   Widget appBar() {

@@ -24,13 +24,6 @@ class ClientInfo extends StatelessWidget {
           elevation: 1.0,
           title: Text('RemindDiary', style: TextStyle(color: Colors.black),),
           backgroundColor: Colors.white,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () { },
-              color: Colors.black,
-            )
-          ],
         ),
         body: Column(
           children: [

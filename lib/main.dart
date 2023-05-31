@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'client/client_custom_drawer/home_drawer.dart';
 import 'firebase_options.dart';
 import 'login/login.dart';
 import 'login/model_auth.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
           title: 'REMIND DIARY',
         debugShowCheckedModeBanner: false,
         routes: {
-          '/clienthome': (context) => const NavigationHomeScreen(),
+          '/clienthome': (context) => NavigationHomeScreen(pagename: DrawerIndex.HOME),
           '/offerhome': (context) => const OfferNavigationHomeScreen(),
           '/login': (context) => LoginPage(),
           '/splash': (context) => SplashScreen(),

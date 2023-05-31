@@ -42,89 +42,111 @@ class _TagsState extends State<Tags> with TickerProviderStateMixin {
               Expanded(
                 child:Column(
                   children:[
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.all(10),
-                                    child: TextField(
-                                      controller: _searchcontroller,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: 'search',
-                                        helperText: '',
-                                      ),
-                                    ),
-                                  ),
+                    Container(
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(top:20, right:10),
+                              child: TextField(
+                                controller: _searchcontroller,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: '태그 검색',
+                                  helperText: '',
                                 ),
-                                IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      tags.add(_searchcontroller.text);
-                                    });
-                                  },
-                                  icon: Icon(Icons.search)
-                                )
-                              ],
-                            ),
-                            Expanded(
-                              child: FutureBuilder<bool>(
-                                future: getData(),
-                                builder:
-                                    (BuildContext context, AsyncSnapshot<bool> snapshot) {
-                                  if (!snapshot.hasData) {
-                                    return const SizedBox();
-                                  } else {
-                                    return Container(
-                                        margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                                        child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            children: [
-                                              SizedBox(
-                                                child: Wrap(
-                                                  spacing : 8.0,
-                                                  runSpacing: 4.0,
-                                                  children:
-                                                  tags.map((String name) =>
-                                                      Chip(
-                                                        avatar: CircleAvatar(child : Text("#")),
-                                                        label : Text(name),
-                                                        deleteIcon: Icon(Icons.delete),
-                                                        onDeleted: () {
-                                                          setState(() {
-                                                            tags.removeAt(tags.indexOf(name));
-                                                          });
-                                                        },
-                                                      )
-                                                  ).toList(),
-                                                )
-                                              )
-                                            ]
-                                        )
-                                    );
-                                  }
-                                },
                               ),
                             ),
-                          ]
-                      )
-              ),
-              SizedBox(
-                  height: 50,
-                  child: ElevatedButton(
-                    child: Text(
-                        '검색하러 가기',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        )
+                          ),
+                          IconButton(
+                            //padding: EdgeInsets.zero, // 패딩 설정
+                            constraints: BoxConstraints(),
+                            onPressed: () {
+                              setState(() {
+                                tags.add(_searchcontroller.text);
+                              });
+                            },
+                            icon: Icon(Icons.search)
+                          )
+                        ],
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context) => DiaryNavigation()));
-                    },
-                  )
+                    Expanded(
+                      child: FutureBuilder<bool>(
+                        future: getData(),
+                        builder:
+                            (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                          if (!snapshot.hasData) {
+                            return const SizedBox();
+                          } else {
+                            return Container(
+                                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        child: Wrap(
+                                          spacing : 8.0,
+                                          runSpacing: 4.0,
+                                          children:
+                                          tags.map((String name) =>
+                                              Chip(
+                                                avatar: CircleAvatar(child : Text("#")),
+                                                label : Text(name),
+                                                deleteIcon: Icon(Icons.delete),
+                                                onDeleted: () {
+                                                  setState(() {
+                                                    tags.removeAt(tags.indexOf(name));
+                                                  });
+                                                },
+                                              )
+                                          ).toList(),
+                                        )
+                                      )
+                                    ]
+                                )
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                  ]
               )
+              ),
+              Center(
+                    child:Container(
+                      margin:EdgeInsets.fromLTRB(20, 10, 20, 40),
+                      width: 500,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          color: Colors.black26,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              blurRadius: 3.0,
+                              spreadRadius: 2.0,
+                              offset: Offset(0, 4)
+                          )
+                          ]
+                      ),
+                      child:ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(context,MaterialPageRoute(builder: (context) => DiaryNavigation()));
+                          },
+                          icon: Icon(Icons.arrow_forward),
+                          label: Text("검색하러 가기"),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
+                              )
+                          )
+                      ),
+                    )
+                  )
             ],
           ),
       ));

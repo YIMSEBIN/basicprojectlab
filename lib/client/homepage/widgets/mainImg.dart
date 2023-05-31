@@ -16,75 +16,87 @@ class _mainImg extends State{
   }
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-            child: Container(
-              width: double.infinity,
-              child: Image(
-                image: AssetImage(path),
-                fit: BoxFit.cover,
-              ),
-            )
-        ),
-        Positioned(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start ,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(0, 0, 0, 0.5)
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start ,
-                    children: [
-                      Container(
-                        padding: EdgeInsets.fromLTRB(10, 10, 100, 5),
-                        child: Text(
-                          "2023/05/26",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(10, 5, 100, 10),
-                        child: Text(
-                          "영화제",
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+    return Container(
+      padding: EdgeInsets.only(top: 10),
+      child: Stack(
+        children: [
+          Positioned(
+              child: Container(
+                width: double.infinity,
+                child: Image(
+                  image: AssetImage(path),
+                  fit: BoxFit.cover,
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 50),
-                  child: TextButton(
-                    onPressed: () { showAlert(); },
-                    child: Container(
-                      padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(0, 0, 0, 0.4),
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Text(
-                        "더보기",
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white
+              )
+          ),
+          Positioned(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start ,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top:30),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(0, 0, 0, 0.5)
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start ,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 20, 100, 0),
+                          child: Text(
+                              "2023/05/26",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 15,
+                                  letterSpacing: 0.2,
+                                  color: Colors.white
+                              )
+                          ),
                         ),
-                      ),
-                    )
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 0, 100, 20),
+                          child: Text(
+                              "영화제에서 영화 보고온 날",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 25,
+                                  letterSpacing: 0.2,
+                                  color: Colors.white
+                              )
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )
-              ],
-            )
-        )
-      ],
+                  Container(
+                    margin: EdgeInsets.only(top: 20, left: 325),
+                    child: TextButton(
+                        onPressed: () { showAlert(); },
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(25, 8, 25, 8),
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(0, 0, 0, 0.5),
+                              borderRadius: BorderRadius.circular(20)
+                          ),
+                          child: Text(
+                              "오늘 기록하기",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                  letterSpacing: 0.2,
+                                  color: Colors.white
+                              )
+                          ),
+                        )
+                    ),
+                  )
+                ],
+              )
+          )
+        ],
+      )
     );
   }
   void showAlert() {

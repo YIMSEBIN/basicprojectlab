@@ -15,9 +15,17 @@ class RegisterPage extends StatelessWidget {
       create: (_) => RegisterModel(),
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black87,
+          elevation: 0,
+          title: Text('REMIND DIARY'),
+          centerTitle: true,
+          leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
+            Navigator.pop(context);
+          }),
         ),
         body: Column(
           children: [
+            Padding(padding: EdgeInsets.only(top:10)),
             EmailInput(),
             PasswordInput(),
             PasswordConfirmInput(),
@@ -36,7 +44,7 @@ class EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final register = Provider.of<RegisterModel>(context, listen: false);
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(15),
       child: TextField(
         onChanged: (email) {
           register.setEmail(email);
@@ -56,7 +64,7 @@ class PasswordInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final register = Provider.of<RegisterModel>(context);
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(15),
       child: TextField(
         onChanged: (password) {
           register.setPassword(password);
@@ -77,7 +85,7 @@ class PasswordConfirmInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final register = Provider.of<RegisterModel>(context, listen: false);
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(15),
       child: TextField(
         onChanged: (password) {
           register.setPasswordConfirm(password);
@@ -122,7 +130,7 @@ class _ChoiceRoleState extends State<ChoiceRole> {
           margin: EdgeInsets.only(bottom: 20),
           child: Text("유형을 선택해주세요",
             style: TextStyle(
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
               fontSize: 15,
             ),),
         ),
@@ -150,7 +158,7 @@ class _ChoiceRoleState extends State<ChoiceRole> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
                     if (_clientIsPressed) {
-                        return Colors.blue; // 선택시 파란색
+                        return Colors.indigoAccent; // 선택시
                     }
                         return Colors.white; // 그 외에는 흰색
                     }),
@@ -165,7 +173,14 @@ class _ChoiceRoleState extends State<ChoiceRole> {
                         width: 100,
                         height: 100,
                       ),
-                      Text("내담자"),
+                      Text(
+                          "내담자",
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -190,7 +205,7 @@ class _ChoiceRoleState extends State<ChoiceRole> {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
                     if (_offerIsPressed) {
-                      return Colors.blue; // 선택시 파란색
+                      return Colors.amber; // 선택시
                     }
                     return Colors.white; // 그 외에는 흰색
                   }),
@@ -207,6 +222,7 @@ class _ChoiceRoleState extends State<ChoiceRole> {
                       ),
                       Text("상담가",
                         style: TextStyle(
+                          color: Colors.black87,
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),),
@@ -233,6 +249,7 @@ class RegistButton extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.05,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black87,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),

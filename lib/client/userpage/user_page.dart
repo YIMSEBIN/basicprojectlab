@@ -4,11 +4,11 @@ import 'package:fl_chart/fl_chart.dart';
 
 import '../../app_theme.dart';
 
+
 final images = [
-  'assets/images/milky.jpg',
-  'assets/images/mont.jpg',
-  'assets/images/tower.jpg',
-  'assets/images/woman.jpg',
+  'images/movie2.png',
+  'images/movie3.png',
+  'images/movie1.png',
 ];
 
 class UserPage extends StatefulWidget {

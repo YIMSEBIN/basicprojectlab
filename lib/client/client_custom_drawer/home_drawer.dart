@@ -124,7 +124,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
                     child: Text(
-                      'Jingyeong Choi',
+                      'JeongU Choi',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: isLightMode ? AppTheme.grey : AppTheme.white,
@@ -307,6 +307,7 @@ enum DrawerIndex {
   User,
   Homeworks,
   Testing,
+  FindOffer
 }
 
 class DrawerList {

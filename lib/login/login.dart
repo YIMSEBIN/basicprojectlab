@@ -110,6 +110,7 @@ class LoginButton extends StatelessWidget {
       height: 51,
       child : ElevatedButton(
         style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black87,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
@@ -156,6 +157,9 @@ class RegisterButton extends StatelessWidget {
         },
         child: Text(
           'Regist by email',
+          style: TextStyle(
+            color: Colors.black87
+          ),
         ));
   }
 }
